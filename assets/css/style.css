@@ -1,0 +1,96 @@
+/* General */
+html {
+    min-height: 100%;
+}
+
+body {
+    background-color: #1678bd;
+    margin: 0;
+    min-height: 100%;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 55%;
+    min-height: 100%;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+a {
+    color: #00c4ff;
+}
+
+/* Buttons */
+.btn {
+    background-color: #1678bd;
+    border-radius: 4px;
+    outline: none;
+    color: #fff;
+    border: none;
+    padding: 10px 12px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #166298;
+}
+
+/* Login form */
+.login-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+
+    background-color: #fff;
+    padding: 64px 72px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+}
+
+.login-form input,
+.login-form button {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 8px;
+}
+
+.login-form input {
+    padding: 10px 12px;
+    border: 1px solid #b8b8b8;
+    border-radius: 4px;
+    outline: none;
+}
+
+.login-form input:focus {
+    border: 1px solid #3a3a3a;
+}
+
+a:not(:last-child) {
+    margin-bottom: 16px;
+}
+
+/* Feed */
+.feed {
+    background-color: #fff;
+    padding: 64px 72px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+}
