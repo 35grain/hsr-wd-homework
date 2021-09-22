@@ -7,6 +7,8 @@ body {
     background-color: #1678bd;
     margin: 0;
     min-height: 100%;
+
+    font-family: 'Roboto', sans-serif;
 }
 
 .container {
@@ -32,6 +34,11 @@ p {
 
 a {
     color: #00c4ff;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: #009bca;
 }
 
 /* Buttons */
@@ -44,6 +51,7 @@ a {
     padding: 10px 12px;
     transition: 0.3s;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .btn:hover {
@@ -62,8 +70,20 @@ a {
     flex-direction: column;
 
     background-color: #fff;
-    padding: 64px 72px;
+    padding: 75px 100px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 2px;
+}
+
+.login-form::after {
+    content: '';
+    position: absolute;
+    width: 85px;
+    height: 85px;
+    background: url('/assets/img/logo.png') top left no-repeat;
+    background-size: contain;
+    top: 5px;
+    left: 10px;
 }
 
 .login-form input,
@@ -84,13 +104,19 @@ a {
     border: 1px solid #3a3a3a;
 }
 
-a:not(:last-child) {
+.login-form > a:not(:last-child) {
     margin-bottom: 16px;
+}
+
+.login-form > h1 {
+    font-size: 24px;
+    font-weight: normal;
 }
 
 /* Feed */
 .feed {
     background-color: #fff;
-    padding: 64px 72px;
+    padding: 75px 100px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 2px;
 }
