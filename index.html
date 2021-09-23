@@ -18,13 +18,13 @@
     <header>
         <nav>
             <div>
-                <img src="/assets/img/logo.png" alt="Logo" />
+                <img src="assets/img/logo.png" alt="Logo" />
             </div>
             <div class="search-container">
-                <input type="text" name="search" id="search" placeholder="Search"/><button class="btn" type="submit">Search</button>
+                <label for="search"></label><input type="text" name="search" id="search" placeholder="Search"/><button class="btn" type="submit">Search</button>
             </div>
             <div class="user-picture">
-                <img src="/assets/img/defaultUser.png" alt="Profile picture" />
+                <img src="assets/img/defaultUser.png" alt="Profile picture" />
             </div>
         </nav>
     </header>
@@ -32,28 +32,35 @@
         <div class="feed">
             <div class="userPost">
                 <div class="userPostHeader">
-                    <img src="/assets/img/defaultUser.png" alt="Profile picture" />
+                    <img src="assets/img/defaultUser.png" alt="Profile picture" />
                     <p>Sep 18, 2020 15:16</p>
                 </div>
-                <div class="userPostHeader">
-                    <img src="/assets/img/defaultUser.png" alt="Profile picture" />
-                    <p>Sep 18, 2020 15:16</p>
-                </div>
-                <div class="userPostHeader">
-                    <img src="/assets/img/defaultUser.png" alt="Profile picture" />
-                    <p>Sep 18, 2020 15:16</p>
+                <div class="userPostContent">
+                    <img src="assets/img/storm.jpg" alt="storm" />
+                    <p>I think it's going to rain</p>
+                    <button type="button" name="like">👍</button>
                 </div>
             </div>
             <div class="userPost">
                 <div class="userPostHeader">
-                    <img src="/assets/img/defaultUser.png" alt="Profile picture" />
+                    <img src="assets/img/defaultUser.png" alt="Profile picture" />
                     <p>Sep 18, 2020 15:16</p>
                 </div>
-                <!-- <div class="userPostContent">
-                    <img src="/assets/img/defaultUser.png" alt="Profile picture" />
-                    <p>I think it's going to rain</p>
-                    <input type="image" src="res/img/likeButton.png" name="like">
-                </div> -->
+                <div class="userPostContent">
+                    <p>Which weighs more, a pound of feathers or a pound of bricks?</p>
+                    <button type="button" name="like">👍</button>
+                </div>
+            </div>
+            <div class="userPost">
+                <div class="userPostHeader">
+                    <img src="assets/img/defaultUser.png" alt="Profile picture" />
+                    <p>Sep 18, 2020 15:16</p>
+                </div>
+                <div class="userPostContent">
+                    <img src="assets/img/selfie.jpg" alt="selfie" />
+                    <p>Felt cute, might delete later</p>
+                    <button type="button" name="like">👍</button>
+                </div>
             </div>
         </div>
     </div>
