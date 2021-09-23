@@ -58,6 +58,49 @@ a:hover {
     background-color: #166298;
 }
 
+/* Nav */
+
+nav {
+    display: flex;
+    background-color: #ffffff;
+    /* align-items: center; */
+    justify-content: space-between
+}
+
+nav div {
+    height: 30px;
+    flex-grow: 4;
+    padding: 10px;
+}
+
+nav div img {
+    height: 100%;
+}
+
+nav div.search-container > input {
+    box-sizing: border-box;
+    height: 30px;
+    width: 80%;
+    padding: 5px;
+    border: 1px solid #b8b8b8;
+}
+
+nav div.search-container > button {
+    box-sizing: border-box;
+    height: 30px;
+    width: 20%;
+    padding: 5px;
+    border-radius: 0px;
+}
+
+nav div.user-picture{
+    text-align: right;
+}
+
+nav:hover {
+    box-shadow: 0 5px 0px #166298;
+}
+
 /* Login form */
 .login-form {
     position: absolute;
