@@ -41,6 +41,17 @@ a:hover {
     color: #009bca;
 }
 
+input {
+    padding: 10px 12px;
+    border: 1px solid #b8b8b8;
+    border-radius: 4px;
+    outline: none;
+}
+
+input:focus {
+    border: 1px solid #3a3a3a;
+}
+
 /* Buttons */
 .btn {
     background-color: #1678bd;
@@ -59,12 +70,18 @@ a:hover {
 }
 
 /* Nav */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
 
 nav {
     display: flex;
     background-color: #ffffff;
     /* align-items: center; */
-    justify-content: space-between
+    justify-content: space-between;
+    transition: 0.3s;
 }
 
 nav div {
@@ -77,15 +94,14 @@ nav div img {
     height: 100%;
 }
 
-nav div.search-container > input {
+nav div.search-container>input {
     box-sizing: border-box;
     height: 30px;
     width: 80%;
-    padding: 5px;
-    border: 1px solid #b8b8b8;
+    border-radius: 0;
 }
 
-nav div.search-container > button {
+nav div.search-container>button {
     box-sizing: border-box;
     height: 30px;
     width: 20%;
@@ -93,12 +109,12 @@ nav div.search-container > button {
     border-radius: 0;
 }
 
-nav div.user-picture{
+nav div.user-picture {
     text-align: right;
 }
 
 nav:hover {
-    box-shadow: 0 5px 0 #166298;
+    box-shadow: 0 5px 10px rgba(22, 98, 152, 0.5);
 }
 
 /* Login form */
@@ -135,22 +151,11 @@ nav:hover {
     margin: 0 auto 8px;
 }
 
-.login-form input {
-    padding: 10px 12px;
-    border: 1px solid #b8b8b8;
-    border-radius: 4px;
-    outline: none;
-}
-
-.login-form input:focus {
-    border: 1px solid #3a3a3a;
-}
-
-.login-form > a:not(:last-child) {
+.login-form>a:not(:last-child) {
     margin-bottom: 16px;
 }
 
-.login-form > h1 {
+.login-form>h1 {
     font-size: 24px;
     font-weight: normal;
 }
@@ -161,7 +166,7 @@ nav:hover {
     padding: 75px 100px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
     border-radius: 2px;
-    margin-top: 25px;
+    margin: 25px 0;
 }
 
 .userPost {
@@ -178,8 +183,8 @@ nav:hover {
 }
 
 .userPostHeader img {
-    width:100%;
-    max-width:50px;
+    width: 100%;
+    max-width: 50px;
 }
 
 .userPost+.userPost {
@@ -189,22 +194,18 @@ nav:hover {
 .userPostContent p {
     margin: 4px 12px;
 }
+
 .userPostContent img {
     margin: 0 auto;
     max-width: 100%;
 }
+
 .userPostContent button {
-    background-color: dodgerblue;
-    border: none;
-    cursor: pointer;
     padding: 4px 12px;
     margin: 10px 10px;
-    border-radius: 4px;
     box-shadow: 0 3px #999;
 }
-.userPostContent button:hover {
-    background-color: royalBlue;
-}
+
 .userPostContent button:active {
     box-shadow: 0 1px #666;
     transform: translateY(2px);
