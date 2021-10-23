@@ -1,4 +1,3 @@
-
 $(function () {
     $("#profile").click(function () {
         let id = $("#dropdown")
@@ -13,7 +12,7 @@ $(function () {
     })
 })
 
-const displayPosts = function(data) {
+const displayPosts = function (data) {
     const mainFeed = $('.feed');
 
     for (post of data) {
@@ -41,17 +40,17 @@ const displayPosts = function(data) {
         if (post.cover !== "")
             postContent.append($('<img src="' + post.cover + '" alt="Post picture">'));
         // Post text/body
-        postContent.append($('<p>'+ post.body + '</p><button class="btn" type="button" name="like">👍</button>'));
+        postContent.append($('<p>' + post.body + '</p><button class="btn" type="button" name="like">👍</button>'));
         postDiv.append(postContent);
 
         mainFeed.append(postDiv);
     }
 }
 
-$(function() {
-    $.getJSON("https://api.npoint.io/ff5e50d6586fda504c1b", function(response) {
+$(function () {
+    $.getJSON("https://api.npoint.io/ff5e50d6586fda504c1b", function (response) {
         displayPosts(response);
-    }).fail(function() {
+    }).fail(function () {
         console.log("Failed to fetch posts!");
     })
 });
