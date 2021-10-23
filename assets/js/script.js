@@ -10,6 +10,20 @@ $(function () {
                 break;
         }
     })
+
+    // Posts read from JSON endpoint
+    /* $.getJSON("https://api.npoint.io/ff5e50d6586fda504c1b", function (response) {
+        displayPosts(response);
+    }).fail(function () {
+        console.log("Failed to fetch posts!");
+    }) */
+
+    // Posts read from JSON locally
+    $.getJSON("/assets/json/posts.json", function (response) {
+        displayPosts(response);
+    }).fail(function () {
+        console.log("Failed to fetch posts!");
+    })
 })
 
 const displayPosts = function (data) {
@@ -46,11 +60,3 @@ const displayPosts = function (data) {
         mainFeed.append(postDiv);
     }
 }
-
-$(function () {
-    $.getJSON("https://api.npoint.io/ff5e50d6586fda504c1b", function (response) {
-        displayPosts(response);
-    }).fail(function () {
-        console.log("Failed to fetch posts!");
-    })
-});
