@@ -20,7 +20,7 @@
   /* Feed */
   .feed {
     background-color: #fff;
-    padding: 75px 100px;
+    padding: 50px 75px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
     border-radius: 2px;
     margin: 25px 0;

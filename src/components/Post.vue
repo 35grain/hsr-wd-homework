@@ -12,7 +12,8 @@
             <div class="userPostContent">
                 <img v-if="post.cover" :src="post.cover" alt="Post picture">
                 <p>{{ post.body }}</p>
-                <button class="btn" type="button" name="like">👍</button>
+                <button v-on:click="Like(post.id)" class="btn" type="button" name="like">👍</button>
+                <span>{{ post.likes }}</span>
             </div>
         </div>
     </div>
@@ -28,6 +29,13 @@
             posts() {
                 return this.$store.state.posts
             }
+        },
+        methods: {
+            Like: function ($id) {
+                this.$store.dispatch("LikeAct", {
+                    $id
+                })
+            },
         }
     };
 </script>

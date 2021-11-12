@@ -127,7 +127,15 @@ export default createStore({
     ]
   },
   getters: {},
-  mutations: {},
-  actions: {},
+  mutations: {
+    Like (state, {$id}) {
+      state.posts.find(item => item.id === $id).likes += 1;               
+  },
+  },
+  actions: {
+    LikeAct: ({commit}, {$id}) => {
+      commit("Like", {$id})
+    }
+  },
   modules: {},
 });
