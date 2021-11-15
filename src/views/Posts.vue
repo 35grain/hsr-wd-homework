@@ -12,7 +12,7 @@
     name: "Posts",
     components: {
       Post,
-    },
+    }
   };
 </script>
 

@@ -1,9 +1,11 @@
 <template>
-  <Navigation/>
+  <Navigation />
   <div class="container">
-    <router-view />
+    <transition name="fade" mode="out-in">
+      <router-view></router-view>
+    </transition>
   </div>
-  <FooterComp/>
+  <FooterComp />
 </template>
 
 <script>
@@ -15,12 +17,23 @@
     components: {
       Navigation,
       FooterComp
-    },
+    }
   }
 </script>
 
 
 <style lang="scss">
+  /* Vue route change transition */
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.35s ease;
+  }
+
+  .fade-enter-from,
+  .fade-leave-active {
+    opacity: 0;
+  }
+
   /* General */
   html {
     min-height: 100%;
