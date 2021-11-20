@@ -1,5 +1,8 @@
 <template>
     <div>
+        <div class="resetPanel">
+            <button v-on:click="ResetLikeCount()" class="btn" type="button" name="reset">Reset like count</button>
+        </div>
         <div class="userPost" v-for="post in posts" :key="post.id">
             <div class="userPostHeader">
                 <div>
@@ -31,10 +34,13 @@
             }
         },
         methods: {
-            Like: function ($id) {
-                this.$store.dispatch("LikeAct", {
-                    $id
-                })
+            Like: function ($id) { 
+                this.$store.dispatch("LikeAct", { 
+                    $id 
+                }) 
+            },
+            ResetLikeCount: function () { 
+                this.$store.dispatch("ResetLikeCountAct") 
             },
         }
     };
@@ -83,5 +89,11 @@
             box-shadow: 0 1px #666;
             transform: translateY(2px);
         }
+    }
+
+    .resetPanel {
+        display: flex;
+        justify-content: center;
+        margin: 10px;
     }
 </style>

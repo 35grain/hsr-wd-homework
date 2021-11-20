@@ -130,11 +130,17 @@ export default createStore({
   mutations: {
     Like (state, {$id}) {
       state.posts.find(item => item.id === $id).likes += 1;               
-  },
+    },
+    ResetLikeCount(state) {
+      state.posts.forEach(element => element.likes = 0);
+    }
   },
   actions: {
     LikeAct: ({commit}, {$id}) => {
       commit("Like", {$id})
+    },
+    ResetLikeCountAct: ({commit}) => {
+      commit("ResetLikeCount")
     }
   },
   modules: {},
