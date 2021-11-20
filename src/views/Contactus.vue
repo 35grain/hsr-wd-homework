@@ -1,6 +1,9 @@
 <template>
     <div class="contactus">
         <h1>Contact us</h1>
+        <p>Email: hsr@ut.ee</p>
+        <p>Telephone: +372 737 6363</p>
+        <p>Narva mnt 18</p>
     </div>
 </template>
 
