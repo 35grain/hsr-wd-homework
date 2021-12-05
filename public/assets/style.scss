@@ -1,0 +1,249 @@
+/* General */
+html {
+    min-height: 100%;
+}
+
+body {
+    background-color: #1678bd;
+    margin: 0;
+    min-height: 100%;
+
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 55%;
+    min-height: 100%;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+a {
+    color: #00c4ff;
+    transition: 0.3s;
+
+    &:not(.userPost):hover {
+        color: #009bca;
+    }
+}
+
+input {
+    padding: 10px 12px;
+    border: 1px solid #b8b8b8;
+    border-radius: 4px;
+    outline: none;
+
+    &:focus {
+        border: 1px solid #3a3a3a;
+    }
+}
+
+/* Buttons */
+.btn {
+    background-color: #1678bd;
+    border-radius: 4px;
+    outline: none;
+    color: #fff;
+    border: none;
+    padding: 10px 12px;
+    transition: 0.3s;
+    cursor: pointer;
+    font-weight: bold;
+
+    &:hover {
+        background-color: #166298;
+    }
+}
+
+/* Nav */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+
+    nav {
+        display: flex;
+        background-color: #ffffff;
+        /* align-items: center; */
+        justify-content: space-between;
+        transition: 0.3s;
+    
+        div {
+            height: 30px;
+            flex-grow: 4;
+            padding: 10px;
+    
+    
+            img {
+                height: 100%;
+            }
+        }
+    
+        div.router-links {
+            display: flex;
+            justify-content: center;
+    
+            a {
+                text-decoration: none;
+                margin: auto 5px;
+    
+                &.active {
+                    color: #009bca;
+                }
+            }
+        }
+    
+        div.user-picture {
+            display: flex;
+            position: relative;
+            justify-content: right;
+    
+    
+            img {
+                height: 100%;
+                border-radius: 99px;
+            }
+        }
+    
+        span.dropdown-hidden {
+            display: none;
+        }
+    
+        span.dropdown {
+            display: block;
+            position: absolute;
+            list-style: none;
+            background-color: #ffffff;
+            box-shadow: 0 8px 16px -8px rgba(22, 98, 152, 0.5);
+            padding: 12px 16px;
+            margin: 40px -5px;
+            justify-content: center;
+        }
+    
+        &:hover {
+            box-shadow: 0 5px 10px rgba(22, 98, 152, 0.5);
+        }
+    }
+}
+
+/* Footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+
+    div {
+        display: flex;
+        background-color: #ffffff;
+        justify-content: space-between;
+        transition: 0.3s;
+        height: 50px;
+
+        p {
+            flex-grow: 4;
+            padding: 10px;
+            margin: auto 5px;
+            font-weight: bold;
+        }
+
+        .team-name {
+            display: flex;
+            justify-content: left;
+        }
+
+        div.router-links {
+            display: flex;
+            justify-content: center;
+
+            a {
+                text-decoration: none;
+                margin: auto 5px;
+
+                &.router-link-active {
+                    color: #009bca;
+                }
+            }
+        }
+
+        .credits {
+            display: flex;
+            justify-content: right;
+        }
+    }
+}
+
+/* Feed */
+.feed {
+    background-color: #fff;
+    padding: 50px 75px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 2px;
+    margin: 25px 0;
+}
+
+/* Post */
+.userPost {
+    background-color: #fff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 2px;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+
+    &:not(:last-child) {
+        margin-bottom: 20px;
+    }
+
+    .userPostHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 10px;
+
+        img {
+            height: 50px;
+            width: 50px;
+            border-radius: 99px;
+            object-fit: cover;
+        }
+    }
+
+    .userPost+.userPost {
+        margin-top: 20px;
+    }
+
+    .userPostContent p {
+        margin: 4px 12px;
+    }
+
+    .userPostContent img {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .userPostContent button {
+        padding: 4px 12px;
+        margin: 10px 10px;
+        box-shadow: 0 3px #999;
+
+        &:active {
+            box-shadow: 0 1px #666;
+            transform: translateY(2px);
+        }
+    }
+}

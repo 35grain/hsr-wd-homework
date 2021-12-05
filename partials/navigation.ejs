@@ -1,0 +1,18 @@
+<header>
+    <nav>
+        <div>
+            <img src="../assets/img/logo.png" alt="Logo" />
+        </div>
+        <div class="router-links">
+            <a href="/posts" <% if (title === "Posts") { %> class="active" <% } %>>Posts</a>
+            <a href="/addnew" <% if (title === "New post") { %> class="active" <% } %>>New post</a>
+        </div>
+        <div class="user-picture">
+            <img id="profile" src="../assets/img/defaultUser.png" alt="Profile picture" />
+            <span id="dropdown" class="dropdown-hidden">
+                <li>John Doe</li>
+                <li>john.doe@example.com</li>
+            </span>
+        </div>
+    </nav>
+</header>

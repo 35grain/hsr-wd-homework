@@ -1,0 +1,39 @@
+<%- include('../partials/head.ejs') %>
+
+<body>
+    <%- include('../partials/navigation.ejs') %>
+    <div class="container">
+        <div class="feed">
+            <% if (posts.length > 0) { %>
+                <% posts.forEach(post => { %>
+                    <a href="/posts/<%= post.id %>" class="userPost">
+                        <div class="userPostHeader">
+                            <div>
+                                <% if (post.authorProfilePicture) { %>
+                                <img src="<%= post.authorProfilePicture %>" alt="Profile picture">
+                                <% } else { %>
+                                <img src="/assets/img/defaultUser.png" alt="Profile picture">
+                                <% } %>
+                                <p><%= post.authorUsername %></p>
+                            </div>
+                            <p><%= post.date %></p>
+                        </div>
+                        <div class="userPostContent">
+                            <% if (post.cover) { %>
+                            <img src="<%= post.cover %>" alt="Post picture">
+                            <% } %>
+                            <p><%= post.body %></p>
+                            <button class="btn" type="button" name="like">👍</button>
+                            <span><%= post.likes %></span>
+                        </div>
+                    </a>
+                <% }) %>
+            <% } else { %>
+                <h2>No posts found..</h2>
+            <% } %>
+        </div>
+    </div>
+    <%- include('../partials/footer.ejs') %>
+</body>
+
+</html>
