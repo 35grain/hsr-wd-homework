@@ -50,15 +50,14 @@ app.get('/posts/:id', async (req, res) => {
     }
 });
 
-app.post('/posts', async (req, res) => {
+app.put('/posts/:id', async(req, res) => {
     try {
-        const post = req.body;
-        const newpost = await pool.query(
-            "INSERT INTO posts(title, body, urllink) values ($1, $2, $3) RETURNING*", [post.title, post.body, post.urllink]
+        const id = req.params.id;
+        const updatepost = await pool.query(
+            "UPDATE posts SET likes = likes + 1 WHERE id = $1", [id]
         );
-        res.redirect('posts');
     } catch (err) {
-        console.error(err.message)
+        console.error(err.message);
     }
 });
 
@@ -69,9 +68,20 @@ app.delete('/posts/:id', async(req, res) => {
         const deletepost = await pool.query(
             "DELETE FROM posts WHERE id = $1", [id]
         );
-        res.redirect('posts');
     } catch (err) {
         console.error(err.message);
+    }
+});
+
+app.post('/posts', async (req, res) => {
+    try {
+        const post = req.body;
+        const newpost = await pool.query(
+            "INSERT INTO posts(title, body, urllink) values ($1, $2, $3) RETURNING*", [post.title, post.body, post.urllink]
+        );
+        res.redirect('posts');
+    } catch (err) {
+        console.error(err.message)
     }
 });
 

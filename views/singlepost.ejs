@@ -4,6 +4,7 @@
     <%- include('../partials/navigation.ejs') %>
     <div class="container">
         <div class="feed">
+            <% if (post) { %>
             <div class="userPost">
                 <div class="userPostHeader">
                     <div>
@@ -21,24 +22,36 @@
                     <img src="<%= post.cover %>" alt="Post picture">
                     <% } %>
                     <p><%= post.body %></p>
-                    <button class="btn" type="button" name="like">👍</button>
+                    <button class="btn" type="button" name="like" data-like="<%= post.id %>">👍</button>
                     <span><%= post.likes %></span>
                 </div>
             </div>
             <button class="btn" type="button" name="delete" data-del="<%= post.id %>">Delete</button>
+
+            <script>
+                const delreq = document.querySelector('[name="delete"]');
+                delreq.addEventListener('click', (e) => {
+                    const endpoint = `/posts/${delreq.dataset.del}`;
+                    fetch(endpoint, {
+                        method: 'DELETE',
+                    }).then(window.location.href = '/posts')
+                });
+            
+                const likereq = document.querySelector('[name="like"]');
+                likereq.addEventListener('click', (e) => {
+                    const endpoint = `/posts/${likereq.dataset.like}`;
+                    fetch(endpoint, {
+                        method: 'PUT',
+                    }).then(window.location.href = endpoint)
+                });
+            </script>
+
+            <% } else { %>
+                <h2>Post not found..</h2>
+            <% } %>
         </div>
     </div>
     <%- include('../partials/footer.ejs') %>
 </body>
 
 </html>
-
-<script>
-    const delreq = document.querySelector('[name="delete"]');
-    delreq.addEventListener('click', (e) => {
-        const endpoint = `/posts/${delreq.dataset.del}`;
-        fetch(endpoint, {
-            method: 'DELETE',
-        }).then(window.location.href = '/posts')
-    });
-</script>
