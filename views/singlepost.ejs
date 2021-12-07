@@ -25,10 +25,20 @@
                     <span><%= post.likes %></span>
                 </div>
             </div>
-            <button class="btn" type="button" name="delete">Delete</button>
+            <button class="btn" type="button" name="delete" data-del="<%= post.id %>">Delete</button>
         </div>
     </div>
     <%- include('../partials/footer.ejs') %>
 </body>
 
 </html>
+
+<script>
+    const delreq = document.querySelector('[name="delete"]');
+    delreq.addEventListener('click', (e) => {
+        const endpoint = `/posts/${delreq.dataset.del}`;
+        fetch(endpoint, {
+            method: 'DELETE',
+        }).then(window.location.href = '/posts')
+    });
+</script>

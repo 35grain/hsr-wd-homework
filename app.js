@@ -62,6 +62,19 @@ app.post('/posts', async (req, res) => {
     }
 });
 
+app.delete('/posts/:id', async(req, res) => {
+    try {
+        const { id } = req.params;
+        const post = req.body;
+        const deletepost = await pool.query(
+            "DELETE FROM posts WHERE id = $1", [id]
+        );
+        res.redirect('posts');
+    } catch (err) {
+        console.error(err.message);
+    }
+});
+
 app.get('/addnew', (req, res) => {
     res.render('addnewpost', {
         title: "New post"
