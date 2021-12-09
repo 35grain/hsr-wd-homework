@@ -23,7 +23,7 @@
                     <% } %>
                     <p><%= post.body %></p>
                     <button class="btn" type="button" name="like" data-like="<%= post.id %>">👍</button>
-                    <span><%= post.likes %></span>
+                    <span id="likeCount"><%= post.likes %></span>
                 </div>
             </div>
             <button class="btn" type="button" name="delete" data-del="<%= post.id %>">Delete</button>
@@ -38,11 +38,13 @@
                 });
             
                 const likereq = document.querySelector('[name="like"]');
+                const likeCount = $("#likeCount");
                 likereq.addEventListener('click', (e) => {
                     const endpoint = `/posts/${likereq.dataset.like}`;
                     fetch(endpoint, {
                         method: 'PUT',
-                    }).then(window.location.href = endpoint)
+                    }).then(likeCount.text(parseInt(likeCount.text()) + 1),
+                        $("button[name='like']").prop('disabled', true));
                 });
             </script>
 
