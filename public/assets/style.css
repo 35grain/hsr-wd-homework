@@ -66,8 +66,13 @@ input:focus {
   font-weight: bold;
 }
 
-.btn:hover {
+.btn:not(:disabled):hover {
   background-color: #166298;
+}
+
+.btn:disabled {
+  background-color: #546b7c;
+  cursor: default;
 }
 
 /* Nav */
