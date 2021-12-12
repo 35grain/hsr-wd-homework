@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 app.get('/posts', async (req, res) => {
     try {
         const posts = await pool.query(
-            "SELECT *, to_char(date, 'DD Mon YYYY') as date FROM posts"
+            "SELECT *, to_char(date, 'DD Mon YYYY') as date FROM posts ORDER BY posts.date desc"
         );
         res.render('posts', {
             posts: posts.rows,

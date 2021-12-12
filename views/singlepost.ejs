@@ -5,21 +5,21 @@
     <div class="container">
         <div class="feed">
             <% if (post) { %>
-                <%- include('../partials/post.ejs') %>
-                <button class="btn" type="button" name="delete" data-del="<%= post.id %>">Delete</button>
+            <%- include('../partials/post.ejs') %>
+            <button class="btn" type="button" name="delete" data-del="<%= post.id %>">Delete</button>
 
-                <script>
-                    const delreq = document.querySelector('[name="delete"]');
-                    delreq.addEventListener('click', (e) => {
-                        const endpoint = `/posts/${delreq.dataset.del}`;
-                        fetch(endpoint, {
-                            method: 'DELETE',
-                        }).then(window.location.href = '/posts')
-                    });
-                </script>
+            <script>
+                const delreq = document.querySelector('[name="delete"]');
+                delreq.addEventListener('click', (e) => {
+                    const endpoint = `/posts/${delreq.dataset.del}`;
+                    fetch(endpoint, {
+                        method: 'DELETE',
+                    }).then(window.location.href = '/posts')
+                });
+            </script>
 
             <% } else { %>
-                <h2>Post not found..</h2>
+            <h2>Post not found..</h2>
             <% } %>
         </div>
     </div>
