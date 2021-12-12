@@ -7,25 +7,7 @@
             <% if (posts.length > 0) { %>
                 <% posts.forEach(post => { %>
                     <a href="/posts/<%= post.id %>" class="userPost">
-                        <div class="userPostHeader">
-                            <div>
-                                <% if (post.authorProfilePicture) { %>
-                                <img src="<%= post.authorProfilePicture %>" alt="Profile picture">
-                                <% } else { %>
-                                <img src="/assets/img/defaultUser.png" alt="Profile picture">
-                                <% } %>
-                                <p><%= post.authorUsername %></p>
-                            </div>
-                            <p><%= post.date %></p>
-                        </div>
-                        <div class="userPostContent">
-                            <% if (post.cover) { %>
-                            <img src="<%= post.cover %>" alt="Post picture">
-                            <% } %>
-                            <p><%= post.body %></p>
-                            <button class="btn" type="button" name="like">👍</button>
-                            <span><%= post.likes %></span>
-                        </div>
+                        <%- include('../partials/post.ejs', {post: post}) %>
                     </a>
                 <% }) %>
             <% } else { %>

@@ -1,0 +1,34 @@
+<div class="userPost">
+    <div class="userPostHeader">
+        <div>
+            <% if (post.authorProfilePicture) { %>
+            <img src="<%= post.authorProfilePicture %>" alt="Profile picture">
+            <% } else { %>
+            <img src="/assets/img/defaultUser.png" alt="Profile picture">
+            <% } %>
+            <p><%= post.authorUsername %></p>
+        </div>
+        <h2><%= post.title %></h2>
+        <p><%= post.date %></p>
+    </div>
+    <div class="userPostContent">
+        <% if (post.cover) { %>
+        <img src="<%= post.cover %>" alt="Post picture">
+        <% } %>
+        <p><%= post.body %></p>
+        <button class="btn" type="button" name="like" data-like="<%= post.id %>">👍</button>
+        <span id="likeCount"><%= post.likes %></span>
+    </div>
+</div>
+
+<script>
+    const likereq = document.querySelector('[name="like"]');
+    const likeCount = $("#likeCount");
+    likereq.addEventListener('click', (e) => {
+        const endpoint = `/posts/${likereq.dataset.like}`;
+        fetch(endpoint, {
+            method: 'PUT',
+        }).then(likeCount.text(parseInt(likeCount.text()) + 1),
+            $("button[name='like']").prop('disabled', true));
+    });
+</script>

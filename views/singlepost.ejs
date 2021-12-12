@@ -5,48 +5,18 @@
     <div class="container">
         <div class="feed">
             <% if (post) { %>
-            <div class="userPost">
-                <div class="userPostHeader">
-                    <div>
-                        <% if (post.authorProfilePicture) { %>
-                        <img src="<%= post.authorProfilePicture %>" alt="Profile picture">
-                        <% } else { %>
-                        <img src="/assets/img/defaultUser.png" alt="Profile picture">
-                        <% } %>
-                        <p><%= post.authorUsername %></p>
-                    </div>
-                    <p><%= post.date %></p>
-                </div>
-                <div class="userPostContent">
-                    <% if (post.cover) { %>
-                    <img src="<%= post.cover %>" alt="Post picture">
-                    <% } %>
-                    <p><%= post.body %></p>
-                    <button class="btn" type="button" name="like" data-like="<%= post.id %>">👍</button>
-                    <span id="likeCount"><%= post.likes %></span>
-                </div>
-            </div>
-            <button class="btn" type="button" name="delete" data-del="<%= post.id %>">Delete</button>
+                <%- include('../partials/post.ejs') %>
+                <button class="btn" type="button" name="delete" data-del="<%= post.id %>">Delete</button>
 
-            <script>
-                const delreq = document.querySelector('[name="delete"]');
-                delreq.addEventListener('click', (e) => {
-                    const endpoint = `/posts/${delreq.dataset.del}`;
-                    fetch(endpoint, {
-                        method: 'DELETE',
-                    }).then(window.location.href = '/posts')
-                });
-            
-                const likereq = document.querySelector('[name="like"]');
-                const likeCount = $("#likeCount");
-                likereq.addEventListener('click', (e) => {
-                    const endpoint = `/posts/${likereq.dataset.like}`;
-                    fetch(endpoint, {
-                        method: 'PUT',
-                    }).then(likeCount.text(parseInt(likeCount.text()) + 1),
-                        $("button[name='like']").prop('disabled', true));
-                });
-            </script>
+                <script>
+                    const delreq = document.querySelector('[name="delete"]');
+                    delreq.addEventListener('click', (e) => {
+                        const endpoint = `/posts/${delreq.dataset.del}`;
+                        fetch(endpoint, {
+                            method: 'DELETE',
+                        }).then(window.location.href = '/posts')
+                    });
+                </script>
 
             <% } else { %>
                 <h2>Post not found..</h2>

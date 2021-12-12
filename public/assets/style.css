@@ -297,4 +297,38 @@ footer div .credits {
   -webkit-transform: translateY(2px);
           transform: translateY(2px);
 }
+
+/* New post form */
+.new-post-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+
+  background-color: #fff;
+  padding: 75px 100px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+}
+
+.new-post-form input,
+.new-post-form button {
+  display: block;
+  margin: 0 auto 8px;
+  margin: 10px;
+}
+
+.new-post-form>a:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.new-post-form>h1 {
+  font-size: 24px;
+  font-weight: normal;
+}
+
 /*# sourceMappingURL=style.css.map */

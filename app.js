@@ -39,7 +39,7 @@ app.get('/posts/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const posts = await pool.query(
-            "SELECT * FROM posts WHERE id = $1", [id]
+            "SELECT *, to_char(date, 'DD Mon YYYY') as date FROM posts WHERE id = $1", [id]
         );
         res.render('singlepost', {
             post: posts.rows[0],
@@ -76,8 +76,15 @@ app.delete('/posts/:id', async(req, res) => {
 app.post('/posts', async (req, res) => {
     try {
         const post = req.body;
+        post.date = new Date().toISOString().slice(0, 10);
+
+        // default
+        post.authorUsername = "John Doe";
+        post.authorProfilePicture = "";
+
         const newpost = await pool.query(
-            "INSERT INTO posts(title, body, urllink) values ($1, $2, $3) RETURNING*", [post.title, post.body, post.urllink]
+            'INSERT INTO posts(title, body, "authorUsername", "authorProfilePicture", date, cover) values ($1, $2, $3, $4, $5, $6) RETURNING*', 
+            [post.title, post.body, post.authorUsername, post.authorProfilePicture, post.date, post.cover]
         );
         res.redirect('posts');
     } catch (err) {
